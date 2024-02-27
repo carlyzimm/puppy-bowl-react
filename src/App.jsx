@@ -1,13 +1,18 @@
-import { useState } from "react";
-import "./App.css";
+import { Routes, Route } from "react-router-dom";
 import AllPlayers from "./components/AllPlayers";
-import Player from "./components/SinglePlayer";
+import SinglePlayer from "./components/SinglePlayer";
+import Navbar from "./components/NavBar";
 
 function App() {
-  AllPlayers();
   return (
     <>
-      <div>Hi</div>
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path="/" element={<AllPlayers />} />
+          <Route path="/players/:id" element={<SinglePlayer />} />
+        </Routes>
+      </main>
     </>
   );
 }
