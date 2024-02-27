@@ -14,3 +14,16 @@ img {
   height: 100px;
   width: 80px;
 }
+
+article > h2 {
+  cursor: pointer;
+}
+
+nav {
+  margin: 2em;
+  text-align: center;
+}
+
+nav a {
+  margin: 2em;
+}
