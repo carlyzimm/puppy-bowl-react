@@ -31,13 +31,17 @@ export default function SinglePlayer() {
     return <div>Loading...</div>;
   }
   return (
-    <article key={player.id} className="player-card">
+    <article key={player.id} className="single-player-card">
       <h2>
         <img src={player.imageUrl} />
         {player.name}
       </h2>
       <h3>{player.breed}</h3>
-      <button onClick={() => deleteHandler(id)}>Remove Player</button>
+      <h3>{player.teamId}</h3>
+      <h3>{player.status}</h3>
+      <button className="remove-btn" onClick={() => deleteHandler(id)}>
+        Remove Player
+      </button>
     </article>
   );
 }

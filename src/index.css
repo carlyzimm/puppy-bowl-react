@@ -1,22 +1,26 @@
 main {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
 }
 
 .player-card {
-  height: 20vh;
-  width: 30vw;
+  height: 30vh;
+  width: 40vw;
   border: 5px solid black;
   margin: 20px;
 }
 
 img {
-  height: 100px;
-  width: 80px;
+  height: 170px;
+  width: 120px;
 }
 
 article > h2 {
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 nav {
@@ -26,4 +30,15 @@ nav {
 
 nav a {
   margin: 2em;
+}
+
+.single-player-card {
+  height: 50vh;
+  width: 40vw;
+  border: 5px solid black;
+  margin: 20px;
+}
+
+.remove-btn {
+  background-color: green;
 }

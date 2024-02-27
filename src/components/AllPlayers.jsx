@@ -32,6 +32,8 @@ export default function AllPlayers() {
 
   return (
     <main>
+      <h1>Puppy Bowl</h1>
+      <label>Search Puppies (case sensitive):</label>
       <input name="search" value={search} onChange={searchHandler} />
       {filteredPlayers.map((player) => {
         return (
