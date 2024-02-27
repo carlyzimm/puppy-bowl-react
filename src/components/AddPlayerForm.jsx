@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { addPlayer } from "../API";
+import { useNavigate } from "react-router-dom";
 
 export default function NewPlayerForm() {
+  const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [breed, setBreed] = useState("");
   const [image, setImage] = useState("");
@@ -15,6 +18,8 @@ export default function NewPlayerForm() {
       imageUrl: image,
     };
     await addPlayer(playerObject);
+
+    navigate("/");
   }
   return (
     <form onSubmit={handleSubmit}>
