@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { getSinglePlayer } from "../API";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { deletePlayer } from "../API";
 
 export default function SinglePlayer() {
+  const navigate = useNavigate();
+
   const { id } = useParams();
   const [player, setPlayer] = useState(null);
 
@@ -18,6 +21,12 @@ export default function SinglePlayer() {
     updatePlayer();
   }, []);
 
+  async function deleteHandler(playerId) {
+    await deletePlayer(playerId);
+
+    navigate("/");
+  }
+
   if (!player) {
     return <div>Loading...</div>;
   }
@@ -28,6 +37,7 @@ export default function SinglePlayer() {
         {player.name}
       </h2>
       <h3>{player.breed}</h3>
+      <button onClick={() => deleteHandler(id)}>Remove Player</button>
     </article>
   );
 }
