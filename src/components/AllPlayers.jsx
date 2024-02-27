@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function AllPlayers() {
   const navigate = useNavigate();
   const [players, setPlayers] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     async function updatePlayers() {
@@ -19,9 +20,20 @@ export default function AllPlayers() {
     updatePlayers();
   }, []);
 
+  function searchHandler(e) {
+    console.log("e.target.value", e.target.value);
+    setSearch(e.target.value);
+  }
+
+  let filteredPlayers = players;
+  if (search !== "") {
+    filteredPlayers = players.filter((player) => player.name.includes(search));
+  }
+
   return (
     <main>
-      {players.map((player) => {
+      <input name="search" value={search} onChange={searchHandler} />
+      {filteredPlayers.map((player) => {
         return (
           <article key={player.id} className="player-card">
             <h2 onClick={() => navigate(`/players/${player.id}`)}>
